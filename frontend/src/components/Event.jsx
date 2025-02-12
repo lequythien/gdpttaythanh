@@ -55,22 +55,22 @@ const Event = () => {
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4 bg-black bg-opacity-50 px-4 py-2 rounded-lg">
             <ul className="flex space-x-8">
               <li>
-                <a href="#" className="text-white hover:text-blue-500">
+                <a href="https://www.facebook.com/profile.php?id=100068896704733" className="text-white hover:text-blue-500">
                   <i className="fa-brands fa-facebook-f text-2xl"></i>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-black">
+                <a href="https://www.tiktok.com/@gdpttaythanh" className="text-white hover:text-black">
                   <i className="fa-brands fa-tiktok text-2xl"></i>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-red-500">
+                <a href="https://www.youtube.com/@gdpttaythanh" className="text-white hover:text-red-500">
                   <i className="fa-brands fa-youtube text-2xl"></i>
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white hover:text-gray-300">
+                <a href="mailto:gdpttaythanh@gmail.com" className="text-white hover:text-gray-300">
                   <i className="fa-solid fa-envelope text-2xl"></i>
                 </a>
               </li>

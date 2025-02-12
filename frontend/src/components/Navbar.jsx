@@ -167,7 +167,7 @@ const Navbar = () => {
               <summary className="cursor-pointer hover:text-yellow-400 block w-full">
                 TIN TỨC - SỰ KIỆN
               </summary>
-              <ul className="mt-2 space-y-2 text-sm pl-4">
+              <ul className="mt-4 space-y-4 pl-4">
                 <li>
                   <a href="#" className="hover:text-yellow-400 block w-full">
                     TIN PHẬT GIÁO
@@ -187,7 +187,7 @@ const Navbar = () => {
               <summary className="cursor-pointer hover:text-yellow-400 block w-full">
                 TU HỌC
               </summary>
-              <ul className="mt-2 space-y-2 text-sm pl-4">
+              <ul className="mt-4 space-y-4 pl-4">
                 <li>
                   <a href="#" className="hover:text-yellow-400 block w-full">
                     HUẤN LUYỆN
