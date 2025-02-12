@@ -43,7 +43,7 @@ const events = [
 
 const Event = () => {
   return (
-    <div className="flex flex-col md:flex-row py-12 px-4 md:px-12 space-y-8 md:space-y-0 md:space-x-8">
+    <div className="flex flex-col md:flex-row py-12 px-2 md:px-12 space-y-8 md:space-y-0 md:space-x-8">
       <div className="w-full md:w-1/2 flex flex-col items-center relative">
         <div className="w-full h-80 md:h-auto bg-cover bg-center rounded-lg relative">
           <img

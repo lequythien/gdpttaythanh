@@ -41,7 +41,7 @@ const Navbar = () => {
             <li>
               <a
                 href="#"
-                className="text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                className="text-yellow-400 border-yellow-400 pb-1"
               >
                 TRANG CHỦ
               </a>
@@ -53,17 +53,17 @@ const Navbar = () => {
             </li>
 
             <li className="group relative">
-              <a href="#" className="hover:text-yellow-400">
+              <p className="hover:text-yellow-400 cursor-pointer">
                 TIN TỨC - SỰ KIỆN
-              </a>
-              <ul className="absolute left-0 mt-2 hidden group-hover:block bg-[#4A2D1F] shadow-lg py-2 px-3 space-y-2">
+              </p>
+              <ul className="absolute left-0 mt-4 hidden group-hover:block bg-[#da7600] shadow-lg rounded-xl w-48 py-2 px-3 space-y-4">
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a href="#" className="hover:text-blue-400">
                     TIN PHẬT GIÁO
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-yellow-400">
+                  <a href="#" className="hover:text-blue-400">
                     TIN GĐPT
                   </a>
                 </li>
@@ -71,10 +71,10 @@ const Navbar = () => {
             </li>
 
             <li className="group relative">
-              <a href="#" className="hover:text-yellow-400">
+              <p className="hover:text-yellow-400 cursor-pointer">
                 TU HỌC
-              </a>
-              <ul className="absolute left-0 mt-2 hidden group-hover:block bg-[#4A2D1F] shadow-lg py-2 px-3 space-y-2">
+              </p>
+              <ul className="absolute left-0 mt-4 hidden group-hover:block bg-[#da7600] shadow-lg rounded-xl w-48 py-2 px-3 space-y-4">
                 <li>
                   <a href="#" className="hover:text-yellow-400">
                     HUẤN LUYỆN
