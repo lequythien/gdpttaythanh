@@ -121,7 +121,7 @@ const Event = () => {
                   >
                     {event.title.slice(0, 28)}...
                   </a>
-                  <p className="text-yellow-600 mt-2">📅 {event.date}</p>
+                  <p className="text-yellow-600 mt-2"><i class="fa-regular fa-calendar"></i> {event.date}</p>
                 </div>
               </div>
             </SwiperSlide>

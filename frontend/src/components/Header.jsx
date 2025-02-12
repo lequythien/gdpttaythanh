@@ -106,7 +106,7 @@ const Header = () => {
                       : news.title}
                   </a>
                   <p className="text-xs flex items-center mt-1">
-                    📅 {news.date}
+                    <i class="fa-regular fa-calendar"></i> {news.date}
                   </p>
                 </div>
               </div>
