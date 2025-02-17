@@ -40,7 +40,7 @@ const Navbar = () => {
           <ul className="flex space-x-6 text-sm font-semibold">
             <li>
               <a
-                href="#"
+                href="/"
                 className="text-yellow-400 border-yellow-400 pb-1"
               >
                 TRANG CHỦ
@@ -151,12 +151,12 @@ const Navbar = () => {
           } overflow-hidden font-semibold flex flex-col space-y-6 py-4 px-6`}
         >
           <li>
-            <a href="#" className="hover:text-yellow-400 block w-full">
+            <a href="/" className="hover:text-yellow-400 block w-full">
               TRANG CHỦ
             </a>
           </li>
           <li>
-            <a href="#" className="hover:text-yellow-400 block w-full">
+            <a href="/about" className="hover:text-yellow-400 block w-full">
               GIỚI THIỆU
             </a>
           </li>
