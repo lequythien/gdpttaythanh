@@ -49,7 +49,7 @@ const Navbar = () => {
               onClick={() => navigate("/")}
               src={Logo}
               alt="Logo"
-              className="h-12 sm:h-14 lg:h-16 w-auto cursor-pointer"
+              className="h-12 w-auto cursor-pointer"
             />
 
             {/* Nút menu trên mobile */}
