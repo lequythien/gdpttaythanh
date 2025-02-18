@@ -98,28 +98,35 @@ const teamLeaders = [
 
 const About = () => {
   return (
-    <div className="bg-white">
-      {/* Banner */}
-      <div
-        className="relative w-full h-96 bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${Img1})` }}
-      >
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative text-white p-4 rounded-lg shadow-md text-center">
-          <h3 className="text-3xl sm:text-5xl font-bold py-2">GIA ĐÌNH PHẬT TỬ TÂY THÀNH</h3>
-          <p className="text-lg sm:text-xl font-semibold py-2">Thời gian sinh hoạt: Thứ 7 hằng tuần từ 19 giờ 00 phút - 21 giờ 30 phút</p>
-          <p className="text-lg sm:text-xl font-semibold py-2">
-            Địa chỉ: Thôn Tây Thành, xã Quảng Thành, huyện Quảng Điền, Thành phố Huế
+    <div
+      className="relative w-full bg-cover bg-center py-8"
+      style={{
+        backgroundImage: `url(${Img1})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="absolute inset-0 bg-black opacity-40"></div> {/* Lớp phủ nền mờ */}
+      <div className="container mx-auto px-4 py-8 text-center space-y-6 relative z-10">
+        {/* Banner */}
+        <div className="text-white p-4 rounded-lg shadow-md text-center">
+          <h3 className="text-3xl sm:text-5xl font-bold py-5">
+            GIA ĐÌNH PHẬT TỬ TÂY THÀNH
+          </h3>
+          <p className="text-sm sm:text-lg md:text-xl font-semibold py-2">
+            Thời gian sinh hoạt: Thứ 7 hằng tuần từ 19 giờ 00 phút - 21 giờ 30
+            phút
+          </p>
+          <p className="text-sm sm:text-lg md:text-xl font-semibold py-2">
+            Địa chỉ: Thôn Tây Thành, xã Quảng Thành, huyện Quảng Điền, Thành phố
+            Huế
           </p>
         </div>
-      </div>
 
-      {/* Nội dung chính */}
-      <div className="container mx-auto px-4 py-8 text-center space-y-6">
         {/* Danh sách thành viên chính */}
         {members.map((member, index) => (
           <div key={index} className="flex justify-center mb-8">
-            <div className="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center w-full sm:w-96">
+            <div className="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center w-full sm:w-80 lg:w-96">
               <img
                 src={member.image || "/default-avatar.jpg"}
                 alt={member.title}
@@ -136,7 +143,7 @@ const About = () => {
           {staff.map((item, index) => (
             <div
               key={index}
-              className="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center w-full sm:w-96"
+              className="bg-gray-100 p-6 rounded-lg shadow-md flex flex-col items-center w-full sm:w-80 lg:w-96"
             >
               <img
                 src={item.image || "/default-avatar.jpg"}

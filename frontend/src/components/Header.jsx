@@ -63,56 +63,60 @@ const newsData = [
 
 const Header = () => {
   return (
-    <div className="bg-[#f9f0e5] py-6 px-1 md:px-8">
-      <div className="container mx-auto px-4">
-        <h2 className="text-[#d4955c] font-bold text-xl mb-4">TIN NHANH</h2>
+    <div className="bg-[#f9f0e5]">
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="w-full py-6">
+          <div className="container mx-auto">
+            <h2 className="text-[#d4955c] font-bold text-xl mb-4">TIN NHANH</h2>
 
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          spaceBetween={15}
-          slidesPerView={1}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 5 },
-          }}
-          navigation
-          loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: false,
-          }}
-          speed={1000}
-        >
-          {newsData.map((news) => (
-            <SwiperSlide key={news.id}>
-              <div className="relative rounded-xl overflow-hidden">
-                <img
-                  src={news.image}
-                  alt={news.title}
-                  className="w-full h-48 object-cover"
-                />
+            <Swiper
+              modules={[Navigation, Autoplay]}
+              spaceBetween={15}
+              slidesPerView={1}
+              breakpoints={{
+                640: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+                1280: { slidesPerView: 5 },
+              }}
+              navigation
+              loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+              }}
+              speed={1000}
+            >
+              {newsData.map((news) => (
+                <SwiperSlide key={news.id}>
+                  <div className="relative rounded-xl overflow-hidden shadow-lg">
+                    <img
+                      src={news.image}
+                      alt={news.title}
+                      className="w-full h-48 object-cover md:h-64 lg:h-80"
+                    />
 
-                <div className="absolute inset-0 bg-black opacity-40"></div>
+                    <div className="absolute inset-0 bg-black opacity-40"></div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                  <a
-                    href="#"
-                    className="text-sm font-semibold text-yellow-400 hover:text-blue-50"
-                  >
-                    {news.title.length > 60
-                      ? news.title.slice(0, 60) + "..."
-                      : news.title}
-                  </a>
-                  <p className="text-xs flex items-center mt-1">
-                    <i class="fa-regular fa-calendar mr-2"></i> {news.date}
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+                    <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
+                      <a
+                        href="#"
+                        className="text-sm font-semibold text-yellow-400 hover:text-blue-50 line-clamp-2"
+                      >
+                        {news.title}
+                      </a>
+                      <p className="text-xs flex items-center mt-1">
+                        <i className="fa-regular fa-calendar mr-2"></i>{" "}
+                        {news.date}
+                      </p>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        </div>
       </div>
     </div>
   );
