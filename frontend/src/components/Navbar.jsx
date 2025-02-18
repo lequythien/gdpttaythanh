@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Logo from "../assets/gdpttaythanh.png";
 import { FiMenu, FiX } from "react-icons/fi";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,19 +39,15 @@ const Navbar = () => {
         {/* Menu trên desktop */}
         {!isMobile && (
           <ul className="flex space-x-6 text-sm font-semibold">
-            <li>
-              <a
-                href="/"
-                className="text-yellow-400 border-yellow-400 pb-1"
-              >
+            <NavLink to="/" activeClassName="underline">
+              <li className="text-yellow-400 border-yellow-400 pb-1">
                 TRANG CHỦ
-              </a>
-            </li>
-            <li>
-              <a href="/about" className="hover:text-yellow-400">
-                GIỚI THIỆU
-              </a>
-            </li>
+              </li>
+            </NavLink>
+
+            <NavLink to="/about" activeClassName="underline">
+              <li className="hover:text-yellow-400">GIỚI THIỆU</li>
+            </NavLink>
 
             <li className="group relative">
               <p className="hover:text-yellow-400 cursor-pointer">
@@ -71,9 +68,7 @@ const Navbar = () => {
             </li>
 
             <li className="group relative">
-              <p className="hover:text-yellow-400 cursor-pointer">
-                TU HỌC
-              </p>
+              <p className="hover:text-yellow-400 cursor-pointer">TU HỌC</p>
               <ul className="absolute left-0 mt-4 hidden group-hover:block bg-[#da7600] shadow-lg rounded-xl w-48 py-2 px-3 space-y-4">
                 <li>
                   <a href="#" className="hover:text-yellow-400">
@@ -150,16 +145,13 @@ const Navbar = () => {
               : "max-h-0 opacity-0 invisible"
           } overflow-hidden font-semibold flex flex-col space-y-6 py-4 px-6`}
         >
-          <li>
-            <a href="/" className="hover:text-yellow-400 block w-full">
-              TRANG CHỦ
-            </a>
-          </li>
-          <li>
-            <a href="/about" className="hover:text-yellow-400 block w-full">
-              GIỚI THIỆU
-            </a>
-          </li>
+          <NavLink to="/" activeClassName="underline">
+            <li className="hover:text-yellow-400 block w-full">TRANG CHỦ</li>
+          </NavLink>
+
+          <NavLink to="/about" activeClassName="underline">
+            <li className="hover:text-yellow-400 block w-full">GIỚI THIỆU</li>
+          </NavLink>
 
           {/* Dropdown trên mobile */}
           <li className="relative w-full">
