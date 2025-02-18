@@ -30,7 +30,7 @@ const members = [
   {
     title: "Htr. Cấp Tín Nguyên Dũng - Trương Văn Sung",
     description:
-      "Gia trưởng GĐPT Tây Thành, kiêm thư ký Niệm Phật đường Tây Thành.",
+      "Gia trưởng GĐPT Tây Thành, kiêm thư ký Ban hộ tự Niệm Phật đường Tây Thành.",
     image: Avatar3,
   },
   {
@@ -56,42 +56,42 @@ const staff = [
 const teamLeaders = [
   {
     title: "ĐOÀN TRƯỞNG THIẾU NAM",
-    name: "Htr. Quảng Kiến - Trương Đình Quang",
+    name: "Htr. Tập sự Quảng Kiến - Trương Đình Quang",
     image: Avatar7,
   },
   {
     title: "ĐOÀN TRƯỞNG THIẾU NỮ",
-    name: "Htr. Quảng Tuệ - Trần Phương Uyên",
+    name: "Htr. Tập sự Quảng Tuệ - Trần Phương Uyên",
     image: Avatar8,
   },
   {
     title: "ĐOÀN TRƯỞNG OANH VŨ NAM",
-    name: "Htr. Quảng Phổ - Lê Quý Phước",
+    name: "Htr. Tập sự Quảng Phổ - Lê Quý Phước",
     image: Avatar9,
   },
   {
     title: "ĐOÀN TRƯỞNG OANH VŨ NỮ",
-    name: "Htr. Quảng Phước - Lê Thị Trà My",
+    name: "Htr. Tập sự Quảng Phước - Lê Thị Trà My",
     image: Avatar10,
   },
   {
     title: "ĐOÀN PHÓ THIẾU NAM",
-    name: "Htr. Quảng Nghiêm - Huỳnh Hiếu",
+    name: "Htr. Tập sự Quảng Nghiêm - Huỳnh Hiếu",
     image: Avatar11,
   },
   {
     title: "ĐOÀN PHÓ THIẾU NỮ",
-    name: "Htr. Quảng Diệu - Huỳnh Thị Mỹ Liên",
+    name: "Htr. Tập sự Quảng Diệu - Huỳnh Thị Mỹ Liên",
     image: Avatar12,
   },
   {
     title: "ĐOÀN PHÓ OANH VŨ NAM",
-    name: "Htr. Nhuận Bảo Minh - Lê Phụ Hồng Nhật",
+    name: "Htr. Tập sự Nhuận Bảo Minh - Lê Phụ Hồng Nhật",
     image: Avatar13,
   },
   {
     title: "ĐOÀN PHÓ OANH VŨ NỮ",
-    name: "Htr. Quảng Huyền - Lê Thị Hồng Thắm",
+    name: "Htr. Tập sự Quảng Huyền - Lê Thị Hồng Thắm",
     image: Avatar14,
   },
 ];
