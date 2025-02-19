@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Img1 from "../assets/img_about1.jpg";
 import Avatar1 from "../assets/thich_tam_dao.jpg";
 import Avatar2 from "../assets/huynh_luong.jpg";
@@ -97,16 +97,19 @@ const teamLeaders = [
 ];
 
 const About = () => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div
       className="relative w-full bg-cover bg-center py-8"
       style={{
         backgroundImage: `url(${Img1})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
       }}
     >
-      <div className="absolute inset-0 bg-black opacity-40"></div> {/* Lớp phủ nền mờ */}
+      <div className="absolute inset-0 bg-black opacity-40"></div>{" "}
+      {/* Lớp phủ nền mờ */}
       <div className="container mx-auto px-4 py-8 text-center space-y-6 relative z-10">
         {/* Banner */}
         <div className="text-white p-4 rounded-lg shadow-md text-center">
@@ -130,7 +133,8 @@ const About = () => {
               <img
                 src={member.image || "/default-avatar.jpg"}
                 alt={member.title}
-                className="w-32 h-32 object-cover rounded-full border-4 border-gray-300"
+                className="w-32 h-32 object-cover rounded-full border-4 border-gray-300 cursor-pointer"
+                onClick={() => setSelectedImage(member.image)}
               />
               <h1 className="font-bold text-xl mt-4">{member.title}</h1>
               <p className="text-base font-medium mt-2">{member.description}</p>
@@ -148,7 +152,8 @@ const About = () => {
               <img
                 src={item.image || "/default-avatar.jpg"}
                 alt={item.name}
-                className="w-32 h-32 object-cover rounded-full border-4 border-gray-300"
+                className="w-32 h-32 object-cover rounded-full border-4 border-gray-300 cursor-pointer"
+                onClick={() => setSelectedImage(item.image)}
               />
               <h2 className="text-lg font-bold mt-4">{item.title}</h2>
               <p className="text-base font-medium mt-2">{item.name}</p>
@@ -166,7 +171,8 @@ const About = () => {
               <img
                 src={leader.image || "/default-avatar.jpg"}
                 alt={leader.name}
-                className="w-32 h-32 object-cover rounded-full border-4 border-gray-300"
+                className="w-32 h-32 object-cover rounded-full border-4 border-gray-300 cursor-pointer"
+                onClick={() => setSelectedImage(leader.image)}
               />
               <h2 className="text-lg font-semibold mt-4">{leader.title}</h2>
               <p className="text-base font-medium mt-2">{leader.name}</p>
@@ -174,6 +180,31 @@ const About = () => {
           ))}
         </div>
       </div>
+      
+      {/* Modal xem ảnh */}
+      {selectedImage && (
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center p-4 z-50"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div
+            className="relative max-w-full max-h-full flex justify-center items-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              className="absolute top-3 right-4 text-white text-3xl bg-black bg-opacity-50 rounded-full p-2 hover:bg-opacity-75"
+              onClick={() => setSelectedImage(null)}
+            >
+              &times;
+            </button>
+            <img
+              src={selectedImage}
+              alt="Avatar"
+              className="max-w-full max-h-[90vh] sm:max-w-[80vw] sm:max-h-[85vh] rounded-lg shadow-lg object-contain"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
