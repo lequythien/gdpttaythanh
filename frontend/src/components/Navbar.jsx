@@ -1,341 +1,466 @@
 import React, { useState, useEffect, useRef } from "react";
 import Logo from "../assets/gdpttaythanh.png";
 import { FiMenu, FiX } from "react-icons/fi";
+import { IoMdAdd, IoMdRemove } from "react-icons/io";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [dropdowns, setDropdowns] = useState({
+    tintuc: false,
+    tuhoc: false,
+  });
 
-  const menuRef = useRef(null); // Để theo dõi vùng menu
+  const menuRef = useRef(null);
   const navigate = useNavigate();
 
+  // Kiểm tra kích thước màn hình
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 1024);
     };
-
     window.addEventListener("resize", handleResize);
-    handleResize(); // Gọi ngay khi component mount
-
+    handleResize();
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Đóng menu khi click ngoài vùng menu
+  // Đóng menu khi click ngoài và khóa/mở scroll body
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setIsOpen(false);
+        setDropdowns({ tintuc: false, tuhoc: false });
       }
     };
 
+    // Khóa scroll ngang khi menu mở
+    if (isOpen && isMobile) {
+      document.body.style.overflowX = "hidden";
+    } else {
+      document.body.style.overflowX = "auto";
+    }
+
     document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflowX = "auto"; // Reset khi unmount
+    };
+  }, [isOpen, isMobile]);
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const toggleDropdown = (name) => {
+    setDropdowns((prev) => ({
+      ...prev,
+      [name]: !prev[name],
+    }));
+  };
 
-  // Hàm đóng menu
   const closeMenu = () => {
     setIsOpen(false);
+    setDropdowns({ tintuc: false, tuhoc: false });
   };
 
   return (
-    <div className="bg-[#4A2D1F] sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-white px-6 py-2">
-          <div className="container mx-auto flex items-center justify-between">
-            {/* Logo */}
-            <img
-              onClick={() => navigate("/")}
-              src={Logo}
-              alt="Logo"
-              className="h-12 w-auto cursor-pointer"
-            />
+    <div className="bg-[#4A2D1F] sticky top-0 z-50 shadow-lg">
+      <div className="max-w-7xl mx-auto px-3 py-2">
+        <div className="flex items-center justify-between text-white">
+          {!isMobile && (
+            <div className="flex w-full items-center">
+              {/* Cột trái: Logo */}
+              <div className="flex-shrink-0">
+                <img
+                  onClick={() => navigate("/")}
+                  src={Logo}
+                  alt="Logo"
+                  className="h-16 w-auto cursor-pointer"
+                />
+              </div>
 
-            {/* Nút menu trên mobile */}
-            {isMobile && (
-              <button
-                className="text-white text-2xl lg:hidden"
-                onClick={() => setIsOpen(!isOpen)}
-              >
-                {isOpen ? <FiX /> : <FiMenu />}
-              </button>
-            )}
-
-            {/* Menu trên desktop */}
-            {!isMobile && (
-              <ul className="flex space-x-6 text-sm font-semibold">
-                <NavLink to="/" onClick={closeMenu} activeClassName="underline">
-                  <li className="text-yellow-400 border-yellow-400 pb-1">
-                    TRANG CHỦ
-                  </li>
+              {/* Cột giữa: Menu */}
+              <ul className="flex-grow flex justify-center space-x-6 text-sm font-semibold items-center">
+                <NavLink
+                  to="/"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                      : "hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1"
+                  }
+                >
+                  TRANG CHỦ
                 </NavLink>
-
                 <NavLink
                   to="/about"
                   onClick={closeMenu}
-                  activeClassName="underline"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                      : "hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1"
+                  }
                 >
-                  <li className="hover:text-yellow-400">GIỚI THIỆU</li>
+                  GIỚI THIỆU
                 </NavLink>
-
-                <li className="group relative">
-                  <p className="hover:text-yellow-400 cursor-pointer">
+                <div className="dropdown relative group">
+                  <button className="hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1 flex items-center">
                     TIN TỨC - SỰ KIỆN
-                  </p>
-                  <ul className="absolute left-0 mt-4 hidden group-hover:block bg-[#da7600] shadow-lg rounded-xl w-48 py-2 px-3 space-y-4">
+                  </button>
+                  <div className="dropdown-content absolute bg-[#da7600] rounded-lg text-white shadow-lg hidden group-hover:block">
                     <NavLink
                       to="/news/phat-giao"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">TIN PHẬT GIÁO</li>
+                      TIN PHẬT GIÁO
                     </NavLink>
                     <NavLink
                       to="/news/gdpt"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">TIN GĐPT</li>
+                      TIN GĐPT
                     </NavLink>
-                  </ul>
-                </li>
-
-                <li className="group relative">
-                  <p className="hover:text-yellow-400 cursor-pointer">TU HỌC</p>
-                  <ul className="absolute left-0 mt-4 hidden group-hover:block bg-[#da7600] shadow-lg rounded-xl w-48 py-2 px-3 space-y-4">
+                  </div>
+                </div>
+                <div className="dropdown relative group">
+                  <button className="hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1 flex items-center">
+                    TU HỌC
+                  </button>
+                  <div className="dropdown-content absolute bg-[#da7600] rounded-lg text-white shadow-lg hidden group-hover:block">
                     <NavLink
                       to="/tu-hoc/huan-luyen"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">HUẤN LUYỆN</li>
+                      HUẤN LUYỆN
                     </NavLink>
                     <NavLink
                       to="/tu-hoc/huynh-truong"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">HUYNH TRƯỞNG</li>
+                      HUYNH TRƯỞNG
                     </NavLink>
                     <NavLink
                       to="/tu-hoc/nganh-thanh"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">NGÀNH THANH</li>
+                      NGÀNH THANH
                     </NavLink>
                     <NavLink
                       to="/tu-hoc/nganh-thieu"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">NGÀNH THIẾU</li>
+                      NGÀNH THIẾU
                     </NavLink>
                     <NavLink
                       to="/tu-hoc/nganh-dong"
                       onClick={closeMenu}
-                      activeClassName="underline"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "block px-4 py-2 text-yellow-400"
+                          : "block px-4 py-2 hover:text-yellow-400"
+                      }
                     >
-                      <li className="my-2">NGÀNH ĐỒNG</li>
+                      NGÀNH ĐỒNG
                     </NavLink>
-                  </ul>
-                </li>
-
+                  </div>
+                </div>
                 <NavLink
                   to="/sinh-hoat"
                   onClick={closeMenu}
-                  activeClassName="underline"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                      : "hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1"
+                  }
                 >
-                  <li className="hover:text-yellow-400">SINH HOẠT</li>
+                  SINH HOẠT
                 </NavLink>
-
                 <NavLink
                   to="/van-nghe"
                   onClick={closeMenu}
-                  activeClassName="underline"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                      : "hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1"
+                  }
                 >
-                  <li className="hover:text-yellow-400">VĂN NGHỆ</li>
+                  VĂN NGHỆ
                 </NavLink>
-
                 <NavLink
                   to="/noi-quy"
                   onClick={closeMenu}
-                  activeClassName="underline"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                      : "hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1"
+                  }
                 >
-                  <li className="hover:text-yellow-400">NỘI QUY</li>
+                  NỘI QUY
                 </NavLink>
-
                 <NavLink
                   to="/lien-he"
                   onClick={closeMenu}
-                  activeClassName="underline"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-yellow-400 border-b-2 border-yellow-400 pb-1"
+                      : "hover:text-yellow-400 hover:border-b-2 hover:border-yellow-400 hover:pb-1"
+                  }
                 >
-                  <li className="hover:text-yellow-400">LIÊN HỆ</li>
+                  LIÊN HỆ
                 </NavLink>
               </ul>
-            )}
 
-            {/* Thanh tìm kiếm (Chỉ hiển thị trên desktop) */}
-            {!isMobile && (
-              <div className="relative hidden lg:block">
-                <input
-                  type="text"
-                  placeholder="Tìm kiếm..."
-                  className="bg-white text-black px-4 py-1 rounded-lg w-40 focus:outline-none"
-                />
-                <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600">
-                  <i className="fa-solid fa-magnifying-glass"></i>
-                </button>
-              </div>
-            )}
-          </div>
-
-          {/* Menu trên mobile */}
-          {isMobile && (
-            <ul
-              ref={menuRef}
-              className={`fixed top-16 left-0 w-full bg-black transition-all duration-500 ease-in-out ${
-                isOpen
-                  ? "max-h-screen opacity-100 visible"
-                  : "max-h-0 opacity-0 invisible"
-              } overflow-hidden font-semibold flex flex-col space-y-6 py-4 px-6`}
-            >
-              <NavLink to="/" onClick={closeMenu} activeClassName="underline">
-                <li className="hover:text-yellow-400 block w-full">
-                  TRANG CHỦ
-                </li>
-              </NavLink>
-
-              <NavLink
-                to="/about"
-                onClick={closeMenu}
-                activeClassName="underline"
-              >
-                <li className="hover:text-yellow-400 block w-full">
-                  GIỚI THIỆU
-                </li>
-              </NavLink>
-
-              {/* Dropdown trên mobile */}
-              <li className="relative w-full">
-                <details className="w-full">
-                  <summary className="cursor-pointer hover:text-yellow-400 block w-full">
-                    TIN TỨC - SỰ KIỆN
-                  </summary>
-                  <ul className="mt-4 space-y-4 pl-4">
-                    <NavLink
-                      to="/news/phat-giao"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li className="mb-4">TIN PHẬT GIÁO</li>
-                    </NavLink>
-                    <NavLink
-                      to="/news/gdpt"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li>TIN GĐPT</li>
-                    </NavLink>
-                  </ul>
-                </details>
-              </li>
-
-              <li className="relative w-full">
-                <details className="w-full">
-                  <summary className="cursor-pointer hover:text-yellow-400 block w-full">
-                    TU HỌC
-                  </summary>
-                  <ul className="mt-4 space-y-6 pl-4">
-                    <NavLink
-                      to="/tu-hoc/huan-luyen"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li className="mb-4">HUẤN LUYỆN</li>
-                    </NavLink>
-                    <NavLink
-                      to="/tu-hoc/huynh-truong"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li className="mb-4">HUYNH TRƯỞNG</li>
-                    </NavLink>
-                    <NavLink
-                      to="/tu-hoc/nganh-thanh"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li className="mb-4">NGÀNH THANH</li>
-                    </NavLink>
-                    <NavLink
-                      to="/tu-hoc/nganh-thieu"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li className="mb-4">NGÀNH THIẾU</li>
-                    </NavLink>
-                    <NavLink
-                      to="/tu-hoc/nganh-dong"
-                      onClick={closeMenu}
-                      activeClassName="underline"
-                    >
-                      <li>NGÀNH ĐỒNG</li>
-                    </NavLink>
-                  </ul>
-                </details>
-              </li>
-
-              <NavLink
-                to="/sinh-hoat"
-                onClick={closeMenu}
-                activeClassName="underline"
-              >
-                <li className="hover:text-yellow-400 block w-full">
-                  SINH HOẠT
-                </li>
-              </NavLink>
-              <NavLink
-                to="/van-nghe"
-                onClick={closeMenu}
-                activeClassName="underline"
-              >
-                <li className="hover:text-yellow-400 block w-full">VĂN NGHỆ</li>
-              </NavLink>
-              <NavLink
-                to="/noi-quy"
-                onClick={closeMenu}
-                activeClassName="underline"
-              >
-                <li className="hover:text-yellow-400 block w-full">NỘI QUY</li>
-              </NavLink>
-              <NavLink
-                to="/lien-he"
-                onClick={closeMenu}
-                activeClassName="underline"
-              >
-                <li className="hover:text-yellow-400 block w-full">LIÊN HỆ</li>
-              </NavLink>
-
-              <li className="w-full py-3">
+              {/* Cột phải: Thanh tìm kiếm */}
+              <div className="flex-shrink-0">
                 <div className="relative">
                   <input
                     type="text"
                     placeholder="Tìm kiếm..."
-                    className="bg-white text-black px-4 py-1 rounded-lg w-full focus:outline-none"
+                    className="bg-white text-black px-4 py-1 rounded-lg w-40 focus:outline-none"
                   />
                   <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600">
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </div>
-              </li>
-            </ul>
+              </div>
+            </div>
+          )}
+
+          {/* Mobile layout */}
+          {isMobile && (
+            <>
+              <img
+                onClick={() => navigate("/")}
+                src={Logo}
+                alt="Logo"
+                className="h-16 w-auto cursor-pointer"
+              />
+              <button
+                className="text-2xl lg:hidden focus:outline-none"
+                onClick={() => setIsOpen(!isOpen)}
+              >
+                {isOpen ? <FiX /> : <FiMenu />}
+              </button>
+            </>
           )}
         </div>
+
+        {/* Menu trên mobile */}
+        {isMobile && (
+          <ul
+            ref={menuRef}
+            className={`fixed top-16 left-0 w-full bg-[#4A2D1F] text-white font-semibold transition-all duration-300 ease-in-out max-h-screen overflow-y-auto overflow-x-hidden ${
+              isOpen ? "opacity-100" : "opacity-0 h-0"
+            }`}
+          >
+            <li className="px-6 py-3">
+              <NavLink
+                to="/"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                }
+              >
+                TRANG CHỦ
+              </NavLink>
+            </li>
+            <li className="px-6 py-3">
+              <NavLink
+                to="/about"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                }
+              >
+                GIỚI THIỆU
+              </NavLink>
+            </li>
+            <li className="px-6 py-3">
+              <button
+                onClick={() => toggleDropdown("tintuc")}
+                className="flex justify-between items-center w-full hover:text-yellow-400"
+              >
+                TIN TỨC - SỰ KIỆN
+                {dropdowns.tintuc ? (
+                  <IoMdRemove className="text-xl" />
+                ) : (
+                  <IoMdAdd className="text-xl" />
+                )}
+              </button>
+              <ul
+                className={`pl-6 mt-2 space-y-3 ${dropdowns.tintuc ? "block" : "hidden"}`}
+              >
+                <NavLink
+                  to="/news/phat-giao"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  TIN PHẬT GIÁO
+                </NavLink>
+                <NavLink
+                  to="/news/gdpt"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  TIN GĐPT
+                </NavLink>
+              </ul>
+            </li>
+            <li className="px-6 py-3">
+              <button
+                onClick={() => toggleDropdown("tuhoc")}
+                className="flex justify-between items-center w-full hover:text-yellow-400"
+              >
+                TU HỌC
+                {dropdowns.tuhoc ? (
+                  <IoMdRemove className="text-xl" />
+                ) : (
+                  <IoMdAdd className="text-xl" />
+                )}
+              </button>
+              <ul
+                className={`pl-6 mt-2 space-y-3 ${dropdowns.tuhoc ? "block" : "hidden"}`}
+              >
+                <NavLink
+                  to="/tu-hoc/huan-luyen"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  HUẤN LUYỆN
+                </NavLink>
+                <NavLink
+                  to="/tu-hoc/huynh-truong"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  HUYNH TRƯỞNG
+                </NavLink>
+                <NavLink
+                  to="/tu-hoc/nganh-thanh"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  NGÀNH THANH
+                </NavLink>
+                <NavLink
+                  to="/tu-hoc/nganh-thieu"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  NGÀNH THIẾU
+                </NavLink>
+                <NavLink
+                  to="/tu-hoc/nganh-dong"
+                  onClick={closeMenu}
+                  className={({ isActive }) =>
+                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                  }
+                >
+                  NGÀNH ĐỒNG
+                </NavLink>
+              </ul>
+            </li>
+            <li className="px-6 py-3">
+              <NavLink
+                to="/sinh-hoat"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                }
+              >
+                SINH HOẠT
+              </NavLink>
+            </li>
+            <li className="px-6 py-3">
+              <NavLink
+                to="/van-nghe"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                }
+              >
+                VĂN NGHỆ
+              </NavLink>
+            </li>
+            <li className="px-6 py-3">
+              <NavLink
+                to="/noi-quy"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                }
+              >
+                NỘI QUY
+              </NavLink>
+            </li>
+            <li className="px-6 py-3">
+              <NavLink
+                to="/lien-he"
+                onClick={closeMenu}
+                className={({ isActive }) =>
+                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                }
+              >
+                LIÊN HỆ
+              </NavLink>
+            </li>
+            <li className="px-6 py-3">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Tìm kiếm..."
+                  className="bg-white text-black px-4 py-1 rounded-lg w-full focus:outline-none"
+                />
+                <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600">
+                  <i className="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </li>
+          </ul>
+        )}
       </div>
     </div>
   );
 };
 
 export default Navbar;
+  
