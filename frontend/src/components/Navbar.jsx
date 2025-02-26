@@ -11,6 +11,7 @@ const Navbar = () => {
     tintuc: false,
     tuhoc: false,
   });
+  const [searchQuery, setSearchQuery] = useState(""); // Trạng thái cho ô tìm kiếm
 
   const menuRef = useRef(null);
   const navigate = useNavigate();
@@ -34,7 +35,6 @@ const Navbar = () => {
       }
     };
 
-    // Khóa scroll ngang khi menu mở
     if (isOpen && isMobile) {
       document.body.style.overflowX = "hidden";
     } else {
@@ -44,7 +44,7 @@ const Navbar = () => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
-      document.body.style.overflowX = "auto"; // Reset khi unmount
+      document.body.style.overflowX = "auto";
     };
   }, [isOpen, isMobile]);
 
@@ -60,8 +60,24 @@ const Navbar = () => {
     setDropdowns({ tintuc: false, tuhoc: false });
   };
 
+  // Hàm xử lý tìm kiếm
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+      setSearchQuery(""); // Xóa ô tìm kiếm sau khi tìm
+      closeMenu(); // Đóng menu trên mobile nếu đang mở
+    }
+  };
+
+  // Xử lý khi nhấn Enter trong ô tìm kiếm
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
-    <div className="bg-[#4A2D1F] sticky top-0 z-50 shadow-lg">
+    <div className="bg-nav bg-[#4A2D1F] sticky top-0 z-50 shadow-lg">
       <div className="max-w-7xl mx-auto px-3 py-2">
         <div className="flex items-center justify-between text-white">
           {!isMobile && (
@@ -244,8 +260,14 @@ const Navbar = () => {
                     type="text"
                     placeholder="Tìm kiếm..."
                     className="bg-white text-black px-4 py-1 rounded-lg w-40 focus:outline-none"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    onKeyPress={handleKeyPress}
                   />
-                  <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600">
+                  <button
+                    onClick={handleSearch}
+                    className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800"
+                  >
                     <i className="fa-solid fa-magnifying-glass"></i>
                   </button>
                 </div>
@@ -276,7 +298,7 @@ const Navbar = () => {
         {isMobile && (
           <ul
             ref={menuRef}
-            className={`fixed top-16 left-0 w-full bg-[#4A2D1F] text-white font-semibold transition-all duration-300 ease-in-out max-h-screen overflow-y-auto overflow-x-hidden ${
+            className={`bg-nav fixed top-16 left-0 w-full bg-[#4A2D1F] text-white font-semibold transition-all duration-300 ease-in-out max-h-screen overflow-y-auto overflow-x-hidden ${
               isOpen ? "opacity-100" : "opacity-0 h-0"
             }`}
           >
@@ -285,7 +307,9 @@ const Navbar = () => {
                 to="/"
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                  isActive
+                    ? "text-yellow-400 block"
+                    : "hover:text-yellow-400 block"
                 }
               >
                 TRANG CHỦ
@@ -296,7 +320,9 @@ const Navbar = () => {
                 to="/about"
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                  isActive
+                    ? "text-yellow-400 block"
+                    : "hover:text-yellow-400 block"
                 }
               >
                 GIỚI THIỆU
@@ -315,13 +341,17 @@ const Navbar = () => {
                 )}
               </button>
               <ul
-                className={`pl-6 mt-2 space-y-3 ${dropdowns.tintuc ? "block" : "hidden"}`}
+                className={`pl-6 mt-2 space-y-3 ${
+                  dropdowns.tintuc ? "block" : "hidden"
+                }`}
               >
                 <NavLink
                   to="/news/phat-giao"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   TIN PHẬT GIÁO
@@ -330,7 +360,9 @@ const Navbar = () => {
                   to="/news/gdpt"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   TIN GĐPT
@@ -350,13 +382,17 @@ const Navbar = () => {
                 )}
               </button>
               <ul
-                className={`pl-6 mt-2 space-y-3 ${dropdowns.tuhoc ? "block" : "hidden"}`}
+                className={`pl-6 mt-2 space-y-3 ${
+                  dropdowns.tuhoc ? "block" : "hidden"
+                }`}
               >
                 <NavLink
                   to="/tu-hoc/huan-luyen"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   HUẤN LUYỆN
@@ -365,7 +401,9 @@ const Navbar = () => {
                   to="/tu-hoc/huynh-truong"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   HUYNH TRƯỞNG
@@ -374,7 +412,9 @@ const Navbar = () => {
                   to="/tu-hoc/nganh-thanh"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   NGÀNH THANH
@@ -383,7 +423,9 @@ const Navbar = () => {
                   to="/tu-hoc/nganh-thieu"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   NGÀNH THIẾU
@@ -392,7 +434,9 @@ const Navbar = () => {
                   to="/tu-hoc/nganh-dong"
                   onClick={closeMenu}
                   className={({ isActive }) =>
-                    isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block py-3"
+                    isActive
+                      ? "text-yellow-400 block"
+                      : "hover:text-yellow-400 block py-3"
                   }
                 >
                   NGÀNH ĐỒNG
@@ -404,7 +448,9 @@ const Navbar = () => {
                 to="/sinh-hoat"
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                  isActive
+                    ? "text-yellow-400 block"
+                    : "hover:text-yellow-400 block"
                 }
               >
                 SINH HOẠT
@@ -415,7 +461,9 @@ const Navbar = () => {
                 to="/van-nghe"
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                  isActive
+                    ? "text-yellow-400 block"
+                    : "hover:text-yellow-400 block"
                 }
               >
                 VĂN NGHỆ
@@ -426,7 +474,9 @@ const Navbar = () => {
                 to="/noi-quy"
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                  isActive
+                    ? "text-yellow-400 block"
+                    : "hover:text-yellow-400 block"
                 }
               >
                 NỘI QUY
@@ -437,7 +487,9 @@ const Navbar = () => {
                 to="/lien-he"
                 onClick={closeMenu}
                 className={({ isActive }) =>
-                  isActive ? "text-yellow-400 block" : "hover:text-yellow-400 block"
+                  isActive
+                    ? "text-yellow-400 block"
+                    : "hover:text-yellow-400 block"
                 }
               >
                 LIÊN HỆ
@@ -449,8 +501,14 @@ const Navbar = () => {
                   type="text"
                   placeholder="Tìm kiếm..."
                   className="bg-white text-black px-4 py-1 rounded-lg w-full focus:outline-none"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyPress={handleKeyPress}
                 />
-                <button className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600">
+                <button
+                  onClick={handleSearch}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800"
+                >
                   <i className="fa-solid fa-magnifying-glass"></i>
                 </button>
               </div>
@@ -463,4 +521,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-  

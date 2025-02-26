@@ -1,6 +1,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
+import { Link } from "react-router-dom";
 import Tintuc1 from "../assets/tintuc1.jpg";
 import Tintuc2 from "../assets/tintuc2.jpg";
 import Tintuc3 from "../assets/tintuc3.jpg";
@@ -18,6 +19,7 @@ const newsData = [
     title: "Gia đình Phật tử Tây Thành tổ chức múa lân Tết Ất Tỵ 2025",
     date: "29/01/2025",
     image: Tintuc1,
+    link: "/sinh-hoat/mua-lan-tet-2025",
   },
   {
     id: 2,
@@ -25,26 +27,30 @@ const newsData = [
       "Gia đình Phật tử Tây Thành tham gia giải Liên hoan múa lân Kiên Thệ 3, do BHD PB tỉnh Thừa Thiên Huế tổ chức.",
     date: "16/09/2024",
     image: Tintuc2,
+    link: "/tin-tuc/lien-hoan-mua-lan-2024",
   },
   {
     id: 3,
     title: "Gia đình Phật tử Tây Thành tổ chức Hội trại Mục Kiền Liên PL.2568",
     date: "17/08/2024",
     image: Tintuc3,
+    link: "/tin-tuc/hoi-trai-muc-kien-lien-2024",
   },
   {
     id: 4,
     title:
-      "Gia đình Phật tử Tây Thành tham gia trại Họp bạn Lục Hòa VII do Phân ban GĐPT huyện Quảng Điển tổ chức tại chùa Sơn Tùng, xã Quảng Vinh",
+      "Gia đình Phật tử Tây Thành tham gia trại Họp bạn Lục Hòa VII do Phân ban GĐPT huyện Quảng Điền tổ chức tại chùa Sơn Tùng, xã Quảng Vinh",
     date: "03/08/2024",
     image: Tintuc4,
+    link: "/sinh-hoat/luc-hoa-vii-2024",
   },
   {
     id: 5,
     title:
-      "6 Huynh trưởng GĐPT Tây Thành tham dự Liên trại Huấn luyện Huynh trưởng Cấp 1 A Dục khóa 40 và Sơ cấp Lộc Uyển khóa 69 tại chùa Sơn Nguyên, huyện A Lưới",
+      "6 Huynh trưởng GĐPT Tây Thành tham dự Liên trai Huấn luyện Huynh trưởng Cấp 1 A Dục khóa 40 và Sơ cấp Lộc Uyển khóa 69 tại chùa Sơn Nguyên, huyện A Lưới",
     date: "08/07/2024",
     image: Tintuc5,
+    link: "/tu-hoc/lien-trai-huan-luyen-2024",
   },
   {
     id: 6,
@@ -52,18 +58,20 @@ const newsData = [
       "Các mầm măng của Gia đình Phật tử Tây Thành tham dự trại Huấn luyện đầu thứ đàn Tuyết Sơn tại chùa Cổ Tháp, xã Quảng Vinh",
     date: "01/07/2024",
     image: Tintuc6,
+    link: "/tin-tuc/trai-huan-luyen-tuyet-son-2024",
   },
   {
     id: 7,
     title: "Gia đình Phật tử Tây Thành tổ chức Hội trại Lâm Tỳ Ni PL.2568",
     date: "25/05/2024",
     image: Tintuc7,
+    link: "/tin-tuc/hoi-trai-lam-ty-ni-2024",
   },
 ];
 
 const Header = () => {
   return (
-    <div className="bg-[#f9f0e5]">
+    <div className="bg-header bg-[#f9f0e5]">
       <div className="max-w-7xl mx-auto px-4">
         <div className="w-full py-6">
           <div className="container mx-auto">
@@ -100,12 +108,21 @@ const Header = () => {
                     <div className="absolute inset-0 bg-black opacity-40"></div>
 
                     <div className="absolute bottom-0 left-0 right-0 p-3 text-white">
-                      <a
-                        href="#"
-                        className="text-sm font-semibold text-yellow-400 hover:text-blue-50 line-clamp-2"
-                      >
-                        {news.title}
-                      </a>
+                      {news.link ? (
+                        <Link
+                          to={news.link}
+                          className="text-sm font-semibold text-yellow-400 hover:text-blue-50 line-clamp-2"
+                        >
+                          {news.title}
+                        </Link>
+                      ) : (
+                        <a
+                          href="#"
+                          className="text-sm font-semibold text-yellow-400 hover:text-blue-50 line-clamp-2 cursor-not-allowed"
+                        >
+                          {news.title}
+                        </a>
+                      )}
                       <p className="text-xs flex items-center mt-1">
                         <i className="fa-regular fa-calendar mr-2"></i>{" "}
                         {news.date}

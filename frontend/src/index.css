@@ -30,7 +30,6 @@
 }
 
 .dropdown-content a {
-  padding: 10px 0;
   text-decoration: none;
   display: block;
 }
@@ -41,8 +40,12 @@
   display: block;
 }
 
-@media screen and (max-width: 1120px) {
+/* @media screen and (max-width: 1120px) {
   .nav-container{
     
   }
+} */
+
+.bg-header{
+  background-image: url(./assets/bghoavan.png);
 }
