@@ -229,13 +229,11 @@ const TraiLamTyNi2024 = () => {
       },
       {
         image: Img26,
-        imageCaption:
-          "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
+        imageCaption: "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
       },
       {
         image: Img27,
-        imageCaption:
-          "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
+        imageCaption: "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
       },
       {
         image: Img28,
@@ -243,14 +241,12 @@ const TraiLamTyNi2024 = () => {
       },
       {
         image: Img29,
-        imageCaption:
-          "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
+        imageCaption: "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
       },
       {
         text: "",
         image: Img30,
-        imageCaption:
-          "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
+        imageCaption: "Trại sinh chăm chú thực hành Quán sổ tức tại hội trại.",
       },
       {
         text: "Buổi sáng tiếp tục với bài giảng Phật pháp từ Đại đức Thích Minh Dũng, giúp các em nhỏ hiểu rõ hơn về ý nghĩa mùa Phật Đản. Đại đức Thích Minh Dũng dùng những câu chuyện giản dị để kể về sự ra đời của Đức Phật, thu hút sự chú ý của các em Oanh vũ.",
@@ -305,155 +301,118 @@ const TraiLamTyNi2024 = () => {
       },
       {
         image: Img40,
-        imageCaption: "Mỗi trại sinh vượt thử thách trong trò chơi lớn do các anh chị trưởng tổ chức.",
+        imageCaption:
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
         text: "Mỗi thử thách trong trò chơi lớn là một bài học nhỏ, giúp các trại sinh trưởng thành hơn qua từng khoảnh khắc.",
         image: Img41,
         imageCaption:
-          "Trại sinh phối hợp ăn ý trong trò chơi lớn tại hội trại.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Trò chơi lớn khép lại với những cái ôm thật chặt giữa các trại sinh, tình thân áo lam lại thêm bền chặt.",
         image: Img42,
         imageCaption:
-          "Niềm vui vỡ òa sau khi hoàn thành trò chơi lớn ngày hai.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Các Huynh trưởng cùng trại sinh ngồi lại tổng kết trò chơi lớn, chia sẻ những điều học được từ hoạt động này.",
         image: Img43,
         imageCaption:
-          "Trại sinh thảo luận sau trò chơi lớn tại hội trại Lâm Tỳ Ni.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Buổi chiều dần buông, các trại sinh chuẩn bị cho đêm Tắm Phật và Lễ Hoa đăng - điểm nhấn đặc biệt của hội trại.",
         image: Img44,
         imageCaption:
-          "Trại sinh chuẩn bị cho đêm Tắm Phật và Lễ Hoa đăng tối ngày hai.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Khi ánh hoàng hôn tắt dần, không gian chùa Tây Thiên trở nên lung linh với ánh sáng từ những ngọn hoa đăng được thắp lên.",
         image: Img45,
         imageCaption:
-          "Chùa Tây Thiên huyền ảo chuẩn bị cho Lễ Hoa đăng PL.2568.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Đêm Tắm Phật bắt đầu với nghi thức rước đèn, các trại sinh cầm hoa đăng bước đi trong không khí trang nghiêm.",
         image: Img46,
         imageCaption:
-          "Nghi thức rước đèn mở đầu đêm Tắm Phật tại hội trại Lâm Tỳ Ni.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Dưới sự hướng dẫn của Chư Tôn đức, các trại sinh lần lượt thực hiện nghi thức Tắm Phật, dâng nước thơm lên Đức Phật sơ sinh.",
         image: Img47,
         imageCaption:
-          "Trại sinh thành kính thực hiện nghi thức Tắm Phật trong đêm lễ.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Tiếng niệm Phật vang vọng hòa cùng ánh sáng hoa đăng, tạo nên một không gian linh thiêng khó quên tại hội trại.",
         image: Img48,
         imageCaption:
-          "Khoảnh khắc linh thiêng trong nghi thức Tắm Phật PL.2568.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Các em Oanh vũ lần đầu tham gia Tắm Phật, ánh mắt lấp lánh niềm vui và lòng thành kính dâng lên Đức Phật.",
         image: Img49,
         imageCaption:
-          "Oanh vũ tíu tít tham gia nghi thức Tắm Phật tại hội trại.",
+          "Hình ảnh các trại sinh đang tham gia vượt thử thách trong trò chơi lớn.",
       },
       {
-        text: "Nghi thức Tắm Phật kết thúc, các trại sinh chuyển sang Lễ Hoa đăng, thả những ngọn đèn lung linh xuống dòng nước.",
         image: Img50,
-        imageCaption:
-          "Trại sinh thả hoa đăng trong Lễ Hoa đăng đêm thứ hai hội trại.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Hàng trăm ngọn hoa đăng trôi trên mặt nước, mang theo lời cầu nguyện an lành của các trại sinh và phật tử.",
         image: Img51,
-        imageCaption:
-          "Cảnh tượng hoa đăng lung linh trong đêm lễ tại chùa Tây Thiên.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Lễ Hoa đăng biến không gian chùa thành một bức tranh huyền ảo, mỗi ngọn đèn là một lời tri ân đến Đức Phật.",
         image: Img52,
-        imageCaption: "Hoa đăng rực rỡ trong Lễ Hoa đăng PL.2568 tại hội trại.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Các trại sinh đứng lặng ngắm hoa đăng trôi, lòng tràn đầy niềm an lạc và sự biết ơn trong mùa Phật Đản.",
         image: Img53,
-        imageCaption:
-          "Trại sinh chiêm ngưỡng hoa đăng trong không gian thanh tịnh.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Đêm Lễ Hoa đăng khép lại với bài kinh cầu nguyện, các trại sinh cùng niệm Phật trong niềm hân hoan khó tả.",
         image: Img54,
-        imageCaption:
-          "Nghi thức niệm Phật kết thúc Lễ Hoa đăng tại hội trại Lâm Tỳ Ni.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Sau lễ, các trại sinh quây quần bên nhau, chia sẻ cảm xúc về đêm Tắm Phật và Lễ Hoa đăng vừa qua.",
         image: Img55,
-        imageCaption:
-          "Trại sinh trò chuyện sau Lễ Hoa đăng trong không khí ấm áp.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Ngày thứ ba, các trại sinh bắt đầu ngày mới với bài thiền sáng, tiếp tục hành trình tìm về sự tĩnh lặng trong tâm hồn.",
         image: Img56,
-        imageCaption:
-          "Trại sinh ngồi thiền sáng ngày thứ ba tại chùa Tây Thiên.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Buổi sáng cuối cùng, các trại sinh tham gia tổng kết hội trại, cùng nhau ôn lại những kỷ niệm đẹp trong ba ngày qua.",
         image: Img57,
-        imageCaption:
-          "Trại sinh tổng kết hội trại Lâm Tỳ Ni trong không khí thân thương.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Các Huynh trưởng trao phần thưởng cho những trại sinh xuất sắc trong các hoạt động của hội trại, mang lại niềm vui lớn lao.",
         image: Img58,
-        imageCaption:
-          "Lễ trao thưởng cho trại sinh xuất sắc tại hội trại Lâm Tỳ Ni.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Một buổi văn nghệ nhỏ được tổ chức để chia tay, các trại sinh hòa mình trong những bài hát về Phật Đản và tình lam.",
         image: Img59,
-        imageCaption: "Trại sinh biểu diễn văn nghệ trong ngày cuối hội trại.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Các em Oanh vũ nhảy múa tưng bừng, mang đến không khí vui tươi cho buổi tổng kết của hội trại Lâm Tỳ Ni.",
         image: Img60,
-        imageCaption:
-          "Oanh vũ trình diễn điệu múa rực rỡ trong ngày bế mạc trại.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Các trại sinh cùng nhau dọn dẹp khu vực trại, để lại chùa Tây Thiên sạch sẽ như một lời tri ân đến nơi tu tập.",
         image: Img61,
-        imageCaption:
-          "Trại sinh dọn dẹp khuôn viên chùa trong ngày cuối hội trại.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Buổi lễ bế mạc diễn ra với nghi thức niệm Phật cuối cùng, khép lại ba ngày hội trại đầy ý nghĩa và cảm xúc.",
         image: Img62,
-        imageCaption:
-          "Lễ bế mạc hội trại Lâm Tỳ Ni PL.2568 tại chùa Tây Thiên.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Các trại sinh chụp ảnh lưu niệm bên lễ đài, lưu giữ những khoảnh khắc đẹp của hội trại trong lòng mỗi người.",
         image: Img63,
-        imageCaption:
-          "Trại sinh chụp ảnh lưu niệm trước lễ đài Phật Đản PL.2568.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Những cái ôm thật chặt, những lời hẹn gặp lại vang lên khi các trại sinh chia tay nhau trong niềm lưu luyến.",
         image: Img64,
-        imageCaption:
-          "Khoảnh khắc chia tay đầy cảm xúc sau hội trại Lâm Tỳ Ni.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
       {
-        text: "Hội trại Lâm Tỳ Ni PL.2568 khép lại, để lại trong lòng các trại sinh và phật tử những ký ức đẹp về một mùa Phật Đản trọn vẹn.",
         image: Img65,
-        imageCaption:
-          "Hình ảnh cuối cùng của hội trại Lâm Tỳ Ni tại chùa Tây Thiên.",
+        imageCaption: "Hình ảnh đêm tắm Phật và hoa đăng tại chùa Tây Thiên.",
       },
     ],
   };
