@@ -60,7 +60,7 @@ const SinhHoat = () => {
       description:
         "",
       link: "/sinh-hoat/trai-lam-ty-ni-2024",
-      category: "Sinh hoạt",
+      category: "Hội trại",
     },
   ];
 
