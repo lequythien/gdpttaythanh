@@ -4,6 +4,8 @@ import Img1 from "./assets/luchoavll/luchoa1.jpg";
 import Img2 from "./assets/mualantet2025/anh1.jpg";
 import Img3 from "./assets/aduclocuyen/anh3.jpg";
 import Img4 from "./assets/mualankienthe/anh1.jpg";
+import Img5 from "./assets/trailamtyni2024/anh1.jpg";
+
 
 const SinhHoat = () => {
   const initialPosts = [
@@ -47,7 +49,18 @@ const SinhHoat = () => {
       description:
         "Ngày 16/09/2024, không khí tại Tổ đình Từ Đàm - Huế trở nên rộn ràng hơn bao giờ hết khi Gia đình Phật tử Tây Thành hòa mình vào giải Liên hoan múa lân Kiên Thệ 3. Đây không chỉ là một sân chơi giao lưu mà còn là dịp để các đội lân thể hiện tinh thần đoàn kết và tài năng điêu luyện của mình.",
       link: "/sinh-hoat/lien-hoan-mua-lan-2024",
-      category: "Huấn luyện",
+      category: "Hoạt động",
+    },
+    {
+      id: 5,
+      title:
+        "GIA ĐÌNH PHẬT TỬ TÂY THÀNH TỔ CHỨC HỘI TRẠI LÂM TỲ NI PL.2568",
+      date: "25/05/2024",
+      image: Img5,
+      description:
+        "",
+      link: "/sinh-hoat/trai-lam-ty-ni-2024",
+      category: "Sinh hoạt",
     },
   ];
 

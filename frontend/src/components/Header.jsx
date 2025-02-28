@@ -62,10 +62,10 @@ const newsData = [
   },
   {
     id: 7,
-    title: "Gia đình Phật tử Tây Thành tổ chức Hội trại Lâm Tỳ Ni PL.2568",
+    title: "GIA ĐÌNH PHẬT TỬ TÂY THÀNH TỔ CHỨC HỘI TRẠI LÂM TỲ NI PL.2568",
     date: "25/05/2024",
     image: Tintuc7,
-    link: "/tin-tuc/hoi-trai-lam-ty-ni-2024",
+    link: "/sinh-hoat/trai-lam-ty-ni-2024",
   },
 ];
 
