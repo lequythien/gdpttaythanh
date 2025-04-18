@@ -16,19 +16,20 @@ import "swiper/css/navigation";
 const newsData = [
   {
     id: 1,
+    title:
+      "GIA ĐÌNH PHẬT TỬ TÂY THÀNH TỔ CHỨC NGÀY TRẠI CÂU NA LA 2, NĂM 2025",
+    date: "06/04/2025",
+    image: Tintuc2,
+    link: "/sinh-hoat/cau-na-la-2",
+  },
+  {
+    id: 2,
     title: "GIA ĐÌNH PHẬT TỬ TÂY THÀNH TỔ CHỨC MÚA LÂN TẾT ẤT TỴ 2025",
     date: "29/01/2025",
     image: Tintuc1,
     link: "/sinh-hoat/mua-lan-tet-2025",
   },
-  {
-    id: 2,
-    title:
-      "GIA ĐÌNH PHẬT TỬ TÂY THÀNH THAM GIA GIẢI LIÊN HOAN MÚA LÂN KIÊN THỆ 3, DO BHD PB TỈNH THỪA THIÊN HUẾ TỔ CHỨC.",
-    date: "16/09/2024",
-    image: Tintuc2,
-    link: "/sinh-hoat/lien-hoan-mua-lan-2024",
-  },
+
   {
     id: 3,
     title: "Gia đình Phật tử Tây Thành tổ chức Hội trại Mục Kiền Liên PL.2568",

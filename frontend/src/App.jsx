@@ -12,6 +12,7 @@ import MuaLanTet2025 from "./pages/Blog/MuaLanTet2025";
 import ToTop from "./ToTop";
 import Search from "./components/Search";
 import TraiLamTyNi2024 from "./pages/Blog/TraiLamTyNi2024";
+import CaNaLa2 from "./pages/Blog/CauNaLa2";
 
 const App = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/sinh-hoat/luc-hoa-vii-2024" element={<LucHoaVll />} />
         <Route path="/sinh-hoat/mua-lan-tet-2025" element={<MuaLanTet2025 />} />
         <Route path="/sinh-hoat/aduc-locuyen" element={<ADucLocUyen />} />
+        <Route path="/sinh-hoat/cau-na-la-2" element={<CaNaLa2 />} />
         <Route
           path="/sinh-hoat/trai-lam-ty-ni-2024"
           element={<TraiLamTyNi2024 />}
